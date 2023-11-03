@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .login-background {
+    background: rgba(0, 0, 0, 0.3)
+      url("https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_medium.jpg")
+      no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+  }
+}
+
+@layer components {
+  .input-field {
+    @apply w-full p-4 rounded mb-4  bg-[#333] block focus:border-0 focus:outline-none focus:bg-[#454545];
+  }
+  .red-button {
+    @apply rounded bg-[#e50914] p-4 w-full font-medium;
+  }
+}
