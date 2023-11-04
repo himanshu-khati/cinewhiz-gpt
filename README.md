@@ -2,6 +2,17 @@
 
 - crete-react-app
 - configure tailwind
+- header
+- routing
+- login/signup form
+- useRef
+- Firebase setup
+- deploying app to production
+- create signup user account
+- implement sign in user api
+- create  redux store with userslice
+- implemented signout
+- update profile 
 
 # Features
 
