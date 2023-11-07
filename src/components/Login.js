@@ -7,12 +7,10 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-
+import { USER_AVATAR } from "../utils/constants";
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -37,8 +35,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://occ-0-2991-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcuCG2TC5AU-LAqZC4zS_hFUg-WJEmyUlKBthWsIsXf1fPiCDsn2N71ai3NOSjjXS2r5oK9n_-LLVAi2wMszFBHEhm74754.png?r=bb8",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
@@ -51,7 +48,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -73,7 +69,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -128,7 +123,7 @@ const Login = () => {
                 )}
                 <button
                   type="submit"
-                  className="red-button"
+                  className="red-button bg-[#e50914]"
                   onClick={handleButtonClick}
                 >
                   {isSignInForm ? "Sign In" : "Sign Up"}

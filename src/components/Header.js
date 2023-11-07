@@ -3,45 +3,73 @@ import { auth } from "../utils/firebase";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
+import { NETFLIX_LOGO } from "../utils/constants";
 function Header() {
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
+      .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
   };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+      return () => {
+        unsubscribe();
+      };
+    });
+  }, []);
   return (
-    <header className="bg-gradient-to-b from-black ">
-      <div className="px-3 py-1 w-full mx-auto  ">
-        <div className="width-full p-2 flex justify-between">
-          <div className="logo-area w-36  flex justify-center items-center">
-            <img
-              src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-              alt="logo"
-              className="object-cover"
-            />
-          </div>
-          {user && (
-            <div className="user-area flex justify-center items-center gap-2">
-              <div className="user-icon">
-                <img src={user?.photoURL} alt="" />
-              </div>
-              <div className="sign-out">
-                <p
-                  className="text-white cursor-pointer "
-                  onClick={handleSignOut}
-                >
-                  Sign Out
-                </p>
+    <header>
+      <div className="bg-black bg-opacity-40 ">
+        <div className="container mx-auto  ">
+          <div className="w-full px-2 sm:px-10 flex justify-between  items-center ">
+            <div className="logo-area w-6/12">
+              <div className="flex justify-start items-center ">
+                <img src={NETFLIX_LOGO} alt="logo" className="logo " />
               </div>
             </div>
-          )}
+            {user && (
+              <div className="user-area w-6/12">
+                <div className=" flex justify-end items-center sm:gap-3 gap-1 ">
+                  <div className="user-icon">
+                    <img className="user-avatar" src={user?.photoURL} alt="" />
+                  </div>
+                  <div className="sign-out">
+                    <p
+                      className="text-white md:text-base md:font-semibold text-sm cursor-pointer "
+                      onClick={handleSignOut}
+                    >
+                      Sign Out
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </header>
