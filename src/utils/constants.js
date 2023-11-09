@@ -14,3 +14,14 @@ export const API_OPTIONS = {
 };
 
 export const POSTER_IMAGE = "https://image.tmdb.org/t/p/w500";
+export const BACKGROUND_IMAGE =
+  "https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_medium.jpg";
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "english", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "spanish", name: "Spanish" },
+];
+
+export const OPENAI_KEY =
+  "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";

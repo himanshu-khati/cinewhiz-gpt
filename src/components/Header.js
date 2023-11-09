@@ -8,8 +8,12 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO } from "../utils/constants";
+import { SUPPORTED_LANGUAGES } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLangugage } from "../utils/configSlice";
 function Header() {
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -20,6 +24,14 @@ function Header() {
         navigate("/error");
       });
   };
+
+  const handleGptSearch = () => {
+    dispatch(toggleGptSearchView());
+  };
+  const handleLanguageChange = (event) => {
+    dispatch(changeLangugage(event.target.value));
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -52,9 +64,38 @@ function Header() {
                 <img src={NETFLIX_LOGO} alt="logo" className="logo " />
               </div>
             </div>
+
             {user && (
               <div className="user-area w-6/12">
                 <div className=" flex justify-end items-center sm:gap-3 gap-1 ">
+                  {showGptSearch && (
+                    <div className="language-options">
+                      <select
+                        name=""
+                        id=""
+                        className="text-white bg-white bg-opacity-10 border hover:bg-white hover:bg-opacity-25"
+                        onChange={handleLanguageChange}
+                      >
+                        {SUPPORTED_LANGUAGES.map((language) => (
+                          <option
+                            key={language.identifier}
+                            value={language.identifier}
+                            className="text-black"
+                          >
+                            {language.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+                  <div className="gpt-search">
+                    <button
+                      className="text-white bg-white bg-opacity-10 border hover:bg-white hover:bg-opacity-25 p-2 rounded"
+                      onClick={handleGptSearch}
+                    >
+                      {showGptSearch ? "Home" : "GPT Search"}
+                    </button>
+                  </div>
                   <div className="user-icon">
                     <img className="user-avatar" src={user?.photoURL} alt="" />
                   </div>

@@ -4,17 +4,27 @@
 
 @layer utilities {
   .login-background {
-    background: rgba(0, 0, 0, 0.3)
-      url("https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_medium.jpg")
-      no-repeat;
-    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-repeat: repeat;
+    background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+    background-size: contain;
+    background-position: center;
+    background-attachment: fixed;
     background-blend-mode: overlay;
+  }
+  .hide-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
 @layer components {
   .input-field {
-    @apply w-full p-4 rounded mb-4  bg-[#333] block focus:border-0 focus:outline-none focus:bg-[#454545];
+    @apply w-full p-4   bg-[#333] block focus:border-0 focus:outline-none focus:bg-[#454545];
   }
   .red-button {
     @apply rounded  py-1 px-4 sm:p-4 sm:w-full sm:font-medium;
@@ -24,8 +34,5 @@
   }
   .user-avatar {
     @apply w-[32px] h-[32px] object-cover;
-  }
-  .scroll-hide {
-    scrollbar-width: none;
   }
 }

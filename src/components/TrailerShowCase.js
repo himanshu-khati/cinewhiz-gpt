@@ -8,7 +8,7 @@ const TrailerShowCase = () => {
   const { title, overview, id } = mainMovie;
   return (
     <section className="trailer-showcase">
-      <div className="container mx-auto relative border-2 border-dashed border-blue-700">
+      <div className="container mx-auto ">
         <div className="row w-full">
           <Trailer movieId={id} />
           <TrailerInfo title={title} overview={overview} />

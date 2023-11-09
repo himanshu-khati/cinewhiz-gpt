@@ -6,7 +6,7 @@ const MoviesListShowCase = () => {
 
   return (
     <section className="movies-list-area">
-      <div className="container mx-auto border-4 border-yellow-500 [&>*:first-child]:bg-[#00000000]   [&>*:not(first-child)]:bg-black ">
+      <div className="container mx-auto  relative -top-5  [&>*:first-child]:backdrop-blur-3xl    [&>*:not(first-child)]:bg-black ">
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
         <MovieList title={"Trending"} movies={movies.popularMovies} />
         <MovieList title={"Upcoming"} movies={movies.upcomingMovies} />

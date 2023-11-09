@@ -100,7 +100,7 @@ const Login = () => {
                     ref={name}
                     type="text"
                     placeholder="Full Name"
-                    className="input-field"
+                    className="input-field mb-4 rounded "
                     required
                   />
                 )}
@@ -109,14 +109,14 @@ const Login = () => {
                   ref={email}
                   type="text"
                   placeholder="Email"
-                  className="input-field"
+                  className="input-field mb-4 rounded "
                 />
 
                 <input
                   ref={password}
                   type="password"
                   placeholder="Password"
-                  className="input-field"
+                  className="input-field mb-4 rounded "
                 />
                 {errorMessage && (
                   <p className="text-sm text-[#e87c03]  mb-2">{errorMessage}</p>
