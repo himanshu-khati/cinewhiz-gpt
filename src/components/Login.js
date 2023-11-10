@@ -80,20 +80,20 @@ const Login = () => {
     }
   };
   return (
-    <>
-      <div className="login-background h-full min-h-screen ">
-        <Header />
-        <section className="login-sign-up flex justify-center items-center ">
-          <div className="container my-2 h-auto mx-auto ">
-            <div className=" w-11/12 md:w-5/12  flex flex-col p-16 bg-[rgba(0,0,0,.75)] my-5 mx-auto  ">
-              <h1 className="text-3xl text-white  font-medium mb-7">
+    <section className="login-page ">
+      <div className="container mx-auto login-background bg-cover">
+        <div className="backdrop-blur-sm sm:py-28  py-40  bg-white/10 relative">
+          <Header />
+          <div className="login-sign-up w-full flex  justify-center items-center ">
+            <div className=" sm:w-6/12 w-11/12 flex flex-col p-7 sm:p-12 bg-[rgba(0,0,0,0.85)] ">
+              <h1 className="text-3xl text-cinewhiz   font-medium mb-7">
                 {isSignInForm ? "Sign In" : "Sign Up"}
               </h1>
 
               <form
                 onSubmit={(e) => e.preventDefault()}
                 action=""
-                className=" w-full text-white"
+                className=" text-gray-200"
               >
                 {!isSignInForm && (
                   <input
@@ -123,25 +123,25 @@ const Login = () => {
                 )}
                 <button
                   type="submit"
-                  className="red-button bg-[#e50914]"
+                  className="rounded p-4 w-full font-medium bg-cinewhiz hover:bg-cinewhiz/80 text-white"
                   onClick={handleButtonClick}
                 >
                   {isSignInForm ? "Sign In" : "Sign Up"}
                 </button>
               </form>
               <p
-                className="text-white my-3 cursor-pointer hover:underline"
+                className="text-gray-200 my-3 cursor-pointer hover:underline"
                 onClick={toggleSignInForm}
               >
                 {isSignInForm
-                  ? "New to Netflix? Sign up now"
+                  ? "New to CineWhiz? Sign up now"
                   : "Already registered? Sign In now"}
               </p>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-    </>
+    </section>
   );
 };
 

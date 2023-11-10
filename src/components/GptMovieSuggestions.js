@@ -1,22 +1,48 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import MovieCard from "./MovieCard";
+import GptMovieCard from "./GptMovieCard";
+import ShimmerUi from "./ShimmerUi";
 const GptMovieSuggestions = () => {
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies.nowPlayingMovies
+  );
+  const shimmerStatus = useSelector((store) => store.gpt.showShimmer);
   const { gptMovieNames, gptMovieResults } = useSelector((store) => store.gpt);
-  if (!gptMovieNames || !gptMovieResults) return null;
+
+  if ((!gptMovieNames || !gptMovieResults) && !shimmerStatus)
+    return (
+      <div className="default-movies login-background bg-contain bg-center bg-repeat">
+        <div className="container sm:p-10 py-10 px-4 backdrop-blur-lg bg-black/80 ">
+          <p className="text-gray-300 font-semibold text-lg">
+            CineWhiz Suggestions
+          </p>
+          <div className="w-full flex flex-wrap justify-center">
+            {nowPlayingMovies.map((movie) => {
+              return <GptMovieCard key={movie.id} movieData={movie} />;
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  if (shimmerStatus) {
+    return <ShimmerUi />;
+  }
   if (gptMovieResults.length)
     return (
-      <section className="gpt-movie-suggestions  text-white border-4 border-red-800">
-        <div className="container  mx-auto">
-          <div className="w-full flex justify-center  flex-wrap bg-black bg-opacity-75 p-20 gap-2 border-2">
+      <div className="gpt-movie-suggestions login-background bg-contain bg-center bg-repeat ">
+        <div className="container md:p-10 py-10 px-4 backdrop-blur-lg bg-black/80 ">
+          <p className="text-gray-300 font-semibold text-lg">
+            Your movie recommendations
+          </p>
+          <div className="w-full flex flex-wrap justify-center">
             {gptMovieResults.map((data) =>
               data.map((movie) => (
-                <MovieCard key={movie.id} movieData={movie} />
+                <GptMovieCard key={movie.id} movieData={movie} />
               ))
             )}
           </div>
         </div>
-      </section>
+      </div>
     );
 };
 

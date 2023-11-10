@@ -4,13 +4,7 @@
 
 @layer utilities {
   .login-background {
-    background-color: rgba(0, 0, 0, 0.3);
-    background-repeat: repeat;
     background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
-    background-size: contain;
-    background-position: center;
-    background-attachment: fixed;
-    background-blend-mode: overlay;
   }
   .hide-scroll::-webkit-scrollbar {
     display: none;
@@ -20,15 +14,37 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+  .background-gradient-top-transparent {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 62%,
+      rgba(0, 0, 0, 0) 91%
+    );
+  }
+  .background-gradient-top-black {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.23012955182072825) 22%,
+      rgba(0, 0, 0, 1) 60%
+    );
+  }
+  .background-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(29, 29, 29, 0.65) 0,
+      rgba(29, 29, 29, 1) 70%
+    );
+  }
+  
 }
 
 @layer components {
   .input-field {
     @apply w-full p-4   bg-[#333] block focus:border-0 focus:outline-none focus:bg-[#454545];
   }
-  .red-button {
-    @apply rounded  py-1 px-4 sm:p-4 sm:w-full sm:font-medium;
-  }
+ 
   .logo {
     @apply sm:w-auto sm:h-[60px] h-[24px] object-cover;
   }

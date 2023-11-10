@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addGptMovieResult } from "../utils/gptSlice";
 import useSearchMovieTmdb from "./hooks/useSearchMovieTmdb";
 import useGptSearch from "./hooks/useGptSearch";
+import { toggleShimmerUi } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
   const searchText = useRef(null);
@@ -13,41 +14,51 @@ const GptSearchBar = () => {
   const gptSearch = useGptSearch;
 
   const handleGptSearchClick = async () => {
+    dispatch(toggleShimmerUi({ shimmer: true }));
     const gptMovies = await gptSearch(searchText.current.value);
     console.log(gptMovies);
     const promiseArray = gptMovies.map((movie) => searchMovieTmdb(movie));
     const tmdbResults = await Promise.all(promiseArray);
     console.log(tmdbResults);
+    if (tmdbResults) {
+      dispatch(toggleShimmerUi({ shimmer: false }));
+    }
     dispatch(
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
     );
   };
 
   return (
-    <section className="gpt-search-bar">
-      <div className="container flex justify-center items-center  mx-auto border-2 border-dashed border-green-700 ">
-        <div className="w-full py-80 border border-red-700 ">
-          <form
-            action=""
-            className="border w-full inline-flex justify-center items-center "
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="text"
-              ref={searchText}
-              placeholder={LANGUAGE_CONSTANTS[languageKey].gptSearchPlaceholder}
-              className="input-field bg-white focus:bg-white text-gray-700 rounded-l w-6/12"
-            />
-            <button
-              className="text-white bg-[#e50914]   px-10 py-4 rounded-r "
-              onClick={handleGptSearchClick}
-            >
-              {LANGUAGE_CONSTANTS[languageKey].search}
-            </button>
-          </form>
+    <div className="search-area login-background  justify-center items-center bg-cover bg-center ">
+      <div className="w-full py-28 flex flex-col border-b border-gray-700  justify-center items-center backdrop-blur-lg bg-black/80">
+        <div className="text-area text-center  text-white mb-5">
+          <h1 className="font-semibold text-cinewhiz text-4xl my-2">
+            CineWhiz AI
+          </h1>
+          <p className="text-gray-300 text-lg">
+            {LANGUAGE_CONSTANTS[languageKey].tagLine}
+          </p>
         </div>
+
+        <form
+          className="inline-flex max-w-lg w-full xs:max-w-md xs:px-5 "
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <input
+            type="text"
+            ref={searchText}
+            placeholder={LANGUAGE_CONSTANTS[languageKey].gptSearchPlaceholder}
+            className="focus:outline-none px-2 sm:text-base text-sm sm:px-5 sm:py-3 max-w-sm w-full bg-white rounded-l"
+          />
+          <button
+            className="text-white bg-cinewhiz  px-10 py-3 rounded-r "
+            onClick={handleGptSearchClick}
+          >
+            {LANGUAGE_CONSTANTS[languageKey].search}
+          </button>
+        </form>
       </div>
-    </section>
+    </div>
   );
 };
 
