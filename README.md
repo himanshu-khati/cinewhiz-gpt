@@ -1,4 +1,4 @@
-# Netflix GPT
+# CineWhiz GPT
 
 - crete-react-app
 - configure tailwind
@@ -10,9 +10,9 @@
 - deploying app to production
 - create signup user account
 - implement sign in user api
-- create  redux store with userslice
+- create redux store with userslice
 - implemented signout
-- update profile 
+- update profile
 
 # Features
 
@@ -29,6 +29,6 @@
     - Movie Suggestions
       - MovieLists x N (vertical scroll)
 
-- Netflix GPT
+- CineWhiz GPT
   - Search Bar
   - Movie Suggestions
