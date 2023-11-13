@@ -14,15 +14,15 @@ const Browse = () => {
   useTopRatedMovies();
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   return (
-    <div className="container mx-auto relative ">
+    <div className="container mx-auto  login-background  bg-contain  ">
       <Header />
       {showGptSearch ? (
         <GptSearchPage />
       ) : (
-        <>
+        <div className="backdrop-blur-lg bg-black/80 ">
           <TrailerShowCase />
           <MoviesListShowCase />
-        </>
+        </div>
       )}
     </div>
   );

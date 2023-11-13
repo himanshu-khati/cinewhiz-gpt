@@ -37,17 +37,13 @@
       rgba(29, 29, 29, 1) 70%
     );
   }
-  
 }
 
 @layer components {
   .input-field {
     @apply w-full p-4   bg-[#333] block focus:border-0 focus:outline-none focus:bg-[#454545];
   }
- 
-  .logo {
-    @apply sm:w-auto sm:h-[60px] h-[24px] object-cover;
-  }
+
   .user-avatar {
     @apply w-[32px] h-[32px] object-cover;
   }

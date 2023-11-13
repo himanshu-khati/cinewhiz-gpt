@@ -55,7 +55,7 @@ function Header() {
     });
   }, []);
   return (
-    <header className="absolute  z-50 px-2 sm:px-4 py-2  backdrop-blur-xl bg-black/70  w-full top-0 ">
+    <header className="absolute  z-50 px-2 sm:px-4 sm:py-2 py-3  backdrop-blur-md bg-black/60  w-full top-0 ">
       <div className="container mx-auto ">
         <div className="w-full flex justify-between  items-center ">
           <div className="logo-area sm:w-6/12 w-3/12">

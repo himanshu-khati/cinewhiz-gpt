@@ -16,10 +16,8 @@ const GptSearchBar = () => {
   const handleGptSearchClick = async () => {
     dispatch(toggleShimmerUi({ shimmer: true }));
     const gptMovies = await gptSearch(searchText.current.value);
-    console.log(gptMovies);
     const promiseArray = gptMovies.map((movie) => searchMovieTmdb(movie));
     const tmdbResults = await Promise.all(promiseArray);
-    console.log(tmdbResults);
     if (tmdbResults) {
       dispatch(toggleShimmerUi({ shimmer: false }));
     }

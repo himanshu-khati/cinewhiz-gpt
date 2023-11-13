@@ -4,21 +4,21 @@ const TrailerInfo = (props) => {
   const { title, overview } = props;
 
   return (
-    <div className="trailer-info absolute top-0 left-0 z-20 border-4 border-red-500">
-      <div className="container m-auto sm:py-40 border-2 border-green-900">
-        <div className="w-full flex items-center justify-start">
-          <div className=" w-4/12 p-6 gap-3     bg-gradient-to-r from-black flex flex-col  ">
-            <h1 className=" sm:text-4xl text-white sm:font-semibold font-semibold text-base">
+    <div className="trailer-info absolute sm:top-0  z-20   ">
+      <div className="container mx-auto">
+        <div className="sm:w-full w-80 mx-auto flex  xl:px-20 lg:py-40 lg:px-14 md:py-36 md:px-9 sm:py-28 sm:px-5 items-center sm:justify-start justify-center   ">
+          <div className=" xl:w-4/12 xl:p-6 lg:p-6  md:w-6/12 md:p-4 lg:gap-3 md:gap-2 sm:w-6/12 w-full sm:p-2 sm:gap-1 gap-2   sm:bg-gradient-to-r from-black flex flex-col  ">
+            <h1 className=" lg:text-4xl text-gray-200  md:text-2xl  sm:text-lg sm:font-semibold font-bold text-base sm:text-left sm:block hidden text-center">
               {title}
             </h1>
-            <p className="text-white hidden sm:block sm:text-sm text-xs font-normal">
+            <p className="text-gray-300 xl:text-base lg:text-sm md:text-sm sm:text-xs sm:block hidden text-xs ">
               {overview}
             </p>
-            <div className="buttons flex mt-5 md:mt-4 sm:mt-4 xs:justify-center  ">
-              <button className=" bg-white bg-opacity-5 hover:bg-opacity-20 border text-white text-lg px-10 py-2 md:py-1 md:text-base md:px-8 sm:py-1 sm:text-base xs:text-xs xs:px-6 sm:px-8 rounded  ">
+            <div className="buttons flex  sm:gap-2 lg:mt-4 sm:mt-2  sm:justify-normal justify-center items-center w-full  mb-1  gap-2 ">
+              <button className=" bg-white bg-opacity-100 hover:bg-opacity-90  text-gray-950 lg:py-1 lg:px-8  md:py-1 md:px-4 md:text-base md:font-medium  sm:py-1 sm:px-3 sm:text-sm sm:w-auto w-6/12 text-sm px-5 py-1 rounded  ">
                 Play
               </button>
-              <button className="mx-2 px-10 py-2 md:py-1 md:text-base md:px-8 sm:py-1 sm:text-base xs:text-xs xs:px-6 sm:px-8 text-sm  rounded bg-white bg-opacity-5 hover:bg-opacity-20 border text-white ">
+              <button className=" bg-white bg-opacity-5 hover:bg-opacity-20 border text-gray-300 lg:py-1 lg:px-8  md:py-1 md:px-4 md:text-base sm:py-1 sm:px-3 sm:text-sm text-sm px-2 py-1 rounded sm:w-auto w-full">
                 <span className=""> &#9432; </span>
                 More info
               </button>

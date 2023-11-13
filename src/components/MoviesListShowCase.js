@@ -5,8 +5,8 @@ const MoviesListShowCase = () => {
   const movies = useSelector((store) => store.movies);
 
   return (
-    <section className="movies-list-area relative -top-36 border-4 border-dashed border-purple-950">
-      <div className="container border-4 border-yellow-700 mx-auto  [&>*:first-child]:background-gradient-top-transparent [&>*:not(first-child)]:bg-black ">
+    <section className="movies-list-area  lg:relative xl:-top-32 lg:-top-28 sm:static relative -top-5 ">
+      <div className="container  mx-auto  [&>*:first-child]:background-gradient-top-transparent [&>*:not(first-child)]:bg-black/40 ">
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
         <MovieList title={"Trending"} movies={movies.popularMovies} />
         <MovieList title={"Upcoming"} movies={movies.upcomingMovies} />

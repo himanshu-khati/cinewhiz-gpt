@@ -3,7 +3,6 @@ import openAi from "../../utils/openAi";
 const useGptSearch = async (searchText) => {
   const gptQuery = `act as a movie reccommendation system and suggest some movies for the query: ${searchText} , only give me names of five movies seperated by comma like the example given ahead. Example result: titanic, avatar, avengers, john wick, blade runner`;
 
-  console.log("fetching data please wait..");
   const chatCompletion = await openAi.chat.completions.create({
     messages: [{ role: "user", content: gptQuery }],
     model: "gpt-3.5-turbo",
