@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Footer from "./Footer";
 import GptSearchPage from "./GptSearchPage";
 import TrailerShowCase from "./TrailerShowCase";
 import MoviesListShowCase from "./MoviesListShowCase";
@@ -24,6 +25,7 @@ const Browse = () => {
           <MoviesListShowCase />
         </div>
       )}
+      <Footer />
     </div>
   );
 };

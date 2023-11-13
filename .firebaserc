@@ -3,6 +3,16 @@
     "default": "cinewhizgpt",
     "cinewhiz": "cinewhizgpt"
   },
-  "targets": {},
+  "targets": {
+    "cinewhizgpt": {
+      "hosting": {
+        "tr": [
+          "cinewhiz",
+          "cinewhiz.web.app"
+        ]
+      }
+    }
+  },
   "etags": {}
+  
 }

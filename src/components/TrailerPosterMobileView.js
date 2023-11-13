@@ -13,7 +13,7 @@ const TrailerPosterMobileView = ({ movieData }) => {
           alt=""
           className="w-11/12 mt-16  border border-gray-600 rounded-xl object-contain"
         />
-        <div className="buttons flex absolute bottom-0 justify-center items-center w-full  my-1  gap-2 ">
+        <div className="buttons flex absolute bottom-0 justify-center items-center w-full  my-3  gap-2 ">
           <button className=" bg-gray-200 bg-opacity-100 hover:bg-opacity-90  text-gray-950 w-4/12 text-sm px-2 py-1 rounded border border-gray-200 ">
             Play
           </button>
