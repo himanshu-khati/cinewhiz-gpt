@@ -4,7 +4,7 @@ const TrailerInfo = (props) => {
   const { title, overview } = props;
 
   return (
-    <div className="trailer-info sm:absolute sm:top-0  z-20 hidden    ">
+    <div className="trailer-info sm:absolute sm:top-0  z-50 hidden   sm:block ">
       <div className="container mx-auto">
         <div className="sm:w-full w-80 mx-auto flex  xl:px-20 lg:py-40 lg:px-14 md:py-36 md:px-9 sm:py-28 sm:px-5 items-center sm:justify-start justify-center   ">
           <div className=" xl:w-4/12 xl:p-6 lg:p-6  md:w-6/12 md:p-4 lg:gap-3 md:gap-2 sm:w-6/12 w-full sm:p-2 sm:gap-1 gap-2   sm:bg-gradient-to-r from-black flex flex-col  ">

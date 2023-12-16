@@ -9,7 +9,8 @@ const MovieCard = ({ movieData }) => {
         <img
           src={`${POSTER_IMAGE}${poster_path}`}
           alt=""
-          className=" w-full xl:h-80 lg:h-72 md:h-72 sm:h-56 h-40   object-cover rounded-lg "
+          className=" w-full xl:h-80 lg:h-72 md:h-72 sm:h-56 h-40   object-cover rounded-lg  "
+
         />
       </div>
     </div>
