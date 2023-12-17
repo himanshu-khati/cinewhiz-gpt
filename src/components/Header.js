@@ -27,9 +27,14 @@ function Header() {
 
   const handleGptSearch = () => {
     dispatch(toggleGptSearchView());
+    navigate("/browse");
   };
   const handleLanguageChange = (event) => {
     dispatch(changeLangugage(event.target.value));
+  };
+
+  const handleLogoClick = () => {
+    navigate("/browse");
   };
 
   useEffect(() => {
@@ -59,7 +64,10 @@ function Header() {
       <div className="w-full flex justify-between  items-center ">
         <div className="logo-area sm:w-6/12 w-3/12">
           <div className="flex justify-start items-center ">
-            <p className="text-cinewhiz tracking-widest  sm:font-bold sm:text-3xl font-semibold text-xl">
+            <p
+              className="text-cinewhiz tracking-widest  sm:font-bold sm:text-3xl font-semibold text-xl cursor-pointer"
+              onMouseDown={() => handleLogoClick()}
+            >
               CINEWHIZ
             </p>
           </div>

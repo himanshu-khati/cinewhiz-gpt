@@ -1,5 +1,3 @@
-import Header from "./Header";
-import Footer from "./Footer";
 import GptSearchPage from "./GptSearchPage";
 import TrailerShowCase from "./TrailerShowCase";
 import MoviesListShowCase from "./MoviesListShowCase";
@@ -15,8 +13,7 @@ const Browse = () => {
   useTopRatedMovies();
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   return (
-    <div className="container mx-auto  login-background  bg-contain  ">
-      <Header />
+    <>
       {showGptSearch ? (
         <GptSearchPage />
       ) : (
@@ -25,8 +22,7 @@ const Browse = () => {
           <MoviesListShowCase />
         </div>
       )}
-      <Footer />
-    </div>
+    </>
   );
 };
 

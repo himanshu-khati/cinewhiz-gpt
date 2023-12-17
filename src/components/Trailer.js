@@ -1,8 +1,14 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useMovieTrailer from "./hooks/useMovieTrailer";
+import { addTrailerVideo } from "../utils/moviesSlice";
+import { useEffect } from "react";
 const Trailer = ({ movieId }) => {
+  const dispatch = useDispatch();
   const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
-  useMovieTrailer(movieId);
+  const data = useMovieTrailer(movieId);
+  useEffect(() => {
+    dispatch(addTrailerVideo(data));
+  }, [data, dispatch]);
   return (
     <div className="trailer sm:block hidden ">
       <iframe
