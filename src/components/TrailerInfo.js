@@ -1,7 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TrailerInfo = (props) => {
-  const { title, overview } = props;
+  const { title, overview, movieId } = props;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/movie/" + movieId);
+  };
 
   return (
     <div className="trailer-info sm:absolute sm:top-0  z-50 hidden   sm:block ">
@@ -15,10 +21,16 @@ const TrailerInfo = (props) => {
               {overview}
             </p>
             <div className="buttons flex  sm:gap-2 lg:mt-4 sm:mt-2  sm:justify-normal justify-center items-center w-full  mb-1  gap-2 ">
-              <button className=" bg-white bg-opacity-100 hover:bg-opacity-90  text-gray-950 lg:py-1 lg:px-8  md:py-1 md:px-4 md:text-base md:font-medium  sm:py-1 sm:px-3 sm:text-sm sm:w-auto w-6/12 text-sm px-5 py-1 rounded  ">
+              <button
+                className=" bg-white bg-opacity-100 hover:bg-opacity-90  text-gray-950 lg:py-1 lg:px-8  md:py-1 md:px-4 md:text-base md:font-medium  sm:py-1 sm:px-3 sm:text-sm sm:w-auto w-6/12 text-sm px-5 py-1 rounded  "
+                onClick={handleClick}
+              >
                 Play
               </button>
-              <button className=" bg-white bg-opacity-5 hover:bg-opacity-20 border text-gray-300 lg:py-1 lg:px-8  md:py-1 md:px-4 md:text-base sm:py-1 sm:px-3 sm:text-sm text-sm px-2 py-1 rounded sm:w-auto w-full">
+              <button
+                className=" bg-white bg-opacity-5 hover:bg-opacity-20 border text-gray-300 lg:py-1 lg:px-8  md:py-1 md:px-4 md:text-base sm:py-1 sm:px-3 sm:text-sm text-sm px-2 py-1 rounded sm:w-auto w-full"
+                onClick={handleClick}
+              >
                 <span className=""> &#9432; </span>
                 More info
               </button>

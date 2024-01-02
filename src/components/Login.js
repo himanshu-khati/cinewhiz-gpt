@@ -1,5 +1,4 @@
 import Header from "./Header";
-import Footer from "./Footer";
 import { useState, useRef } from "react";
 import { checkValidData } from "../utils/validate";
 import {
@@ -141,7 +140,6 @@ const Login = () => {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     </section>
   );

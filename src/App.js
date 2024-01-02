@@ -7,7 +7,7 @@ import Browse from "./components/Browse";
 import MovieInfo from "./components/MovieInfo";
 function App() {
   return (
-    <div className="container mx-auto  login-background  bg-contain  ">
+    <div className="container mx-auto  login-background  bg-contain ">
       <Header />
       <Body />
       <Footer />

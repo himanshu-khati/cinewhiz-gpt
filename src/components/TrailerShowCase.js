@@ -12,11 +12,11 @@ const TrailerShowCase = () => {
       <div className="container mx-auto  ">
         <div className="w-full relative">
           <Trailer movieId={id} />
-          <TrailerInfo title={title} overview={overview} />
+          <TrailerInfo title={title} overview={overview} movieId={id} />
         </div>
 
         <div className="w-full sm:hidden">
-          <TrailerPosterMobileView movieData={mainMovie} />
+          <TrailerPosterMobileView movieData={mainMovie} movieId={id} />
         </div>
       </div>
     </section>
