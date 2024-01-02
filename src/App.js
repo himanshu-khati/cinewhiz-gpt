@@ -5,6 +5,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "./components/Login";
 import Browse from "./components/Browse";
 import MovieInfo from "./components/MovieInfo";
+import ErrorPage from "./components/ErrorPage";
 function App() {
   return (
     <div className="container mx-auto  login-background  bg-contain ">
@@ -19,6 +20,7 @@ export const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
