@@ -80,9 +80,9 @@ const Login = () => {
     }
   };
   return (
-    <section className="login-page ">
-      <div className="container mx-auto login-background bg-cover">
-        <div className="backdrop-blur-sm sm:py-28  py-40  bg-white/10 relative">
+    <section className="login-page min-h-screen  ">
+      <div className="container mx-auto login-background bg-cover  ">
+        <div className="backdrop-blur-sm sm:py-28  py-40  bg-white/10 min-h-screen relative">
           <Header />
           <div className="login-sign-up w-full flex  justify-center items-center ">
             <div className=" sm:w-6/12 w-11/12 flex flex-col p-7 sm:p-12 bg-[rgba(0,0,0,0.85)] ">
