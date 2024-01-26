@@ -56,7 +56,5 @@ Visit Cinewhiz-GPT at [cinewhiz.web.app](https://cinewhiz.web.app). Explore the 
 ## Contribution Guidelines
 Contributions are welcome! If you have any ideas for improvement or would like to report a bug, please open an issue. Feel free to submit pull requests for new features or bug fixes.
 
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 Happy movie watching with Cinewhiz-GPT! 🎬🍿
