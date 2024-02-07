@@ -1,6 +1,7 @@
 # Cinewhiz-GPT: Your Personal Cinematic Curator
 
 Welcome to Cinewhiz-GPT, your go-to destination for personalized movie recommendations. Discover tailor-made suggestions just for you! Whether you're a movie buff or just looking for your next favorite film, Cinewhiz-GPT has got you covered.
+
 Visit Cinewhiz-GPT at [cinewhiz.web.app](https://cinewhiz.web.app).
 
 ## Tagline
